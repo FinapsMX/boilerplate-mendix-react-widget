@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="javasource"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="C:/Program Files/Mendix/6.5.1/runtime/bundles/biz.aQute.bnd.bndlib.jar"/><classpathentry kind="lib" path="C:/Program Files/Mendix/6.5.1/runtime/bundles/org.scala-lang.scala-library.jar"/><classpathentry kind="lib" path="C:/Program Files/Mendix/6.5.1/runtime/bundles/com.mendix.datastorage-api.jar"/><classpathentry kind="lib" path="C:/Program Files/Mendix/6.5.1/runtime/bundles/com.mendix.json.jar"/><classpathentry kind="lib" path="C:/Program Files/Mendix/6.5.1/runtime/bundles/com.mendix.logging.jar"/><classpathentry kind="lib" path="C:/Program Files/Mendix/6.5.1/runtime/bundles/com.mendix.m2ee-api.jar"/><classpathentry kind="lib" path="C:/Program Files/Mendix/6.5.1/runtime/bundles/com.mendix.mxruntime.jar"/><classpathentry kind="lib" path="C:/Program Files/Mendix/6.5.1/runtime/bundles/com.mendix.integration.jar"/><classpathentry kind="lib" path="C:/Program Files/Mendix/6.5.1/runtime/bundles/org.osgi.compendium.jar"/><classpathentry kind="lib" path="C:/Program Files/Mendix/6.5.1/runtime/bundles/com.mendix.webui.jar"/><classpathentry kind="lib" path="C:/Program Files/Mendix/6.5.1/runtime/bundles/javax.servlet.jar"/>
+	
+	<classpathentry kind="output" path="deployment/run/bin"/>
+</classpath>
