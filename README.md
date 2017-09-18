@@ -1,48 +1,29 @@
 # Develop Mendix Widgets with Webpack and React
 
-Somewhere two years ago I got involved in webdevelopment with Javascript and
+Somewhere two years ago I got involved in web development with Javascript and
 the whole surrounding ecosystem. And it was exciting! With the introduction of
 ES2015, the NPM repository, and React it felt as if the web was developing at
-such a rapid speed that all blogposts that I could find were instantenuous
+such a rapid speed that all blog posts that I could find were instantaneous
 outdated. Each day there was a new feature or paradigm introduced that was the
-new cool thing to use, and it felt thrilling to be able to incoorporate that in
+new cool thing to use, and it felt thrilling to be able to incorporate that in
 new projects.
 
-This year I got into Mendix, and as a Javascript developer, my first project
-was a widget development. Actually more of a module. At Finaps we tried to make
-something similair to the Plotly designer which we could include in some of the
-dashboards that we develop. This widget was not easy to develop within the
-Dojo framework; each iteration during the construction felt kinda awkward. I
-rather wished to develop into something that felt more native to Javascript.
-So, after a few days of struggling I decided to spend more time on developing a
-framework which I could leverage to develop native Mendix widgets, with the
-tools that I already knew.
+This year I got into Mendix, and as a Javascript developer, my first project was a widget development. Actually more of a module. At Finaps we tried to make something similar to the Plotly designer which we could include in some of the
+dashboards that we develop. This widget was not easy to develop within the Dojo framework; each iteration during the construction felt kinda awkward. I rather wished to develop into something that felt more native to Javascript.
+So, after a few days of struggling, I decided to spend more time on developing a framework which I could leverage to develop native Mendix widgets, with the tools that I already knew.
 
-It took some time and iterations, but after a while the environment that I set
-up felt just right: it is easy to develop with ES2015 and even ES2017 / ES7 (in
-fact, any version that Babel supports), it includes the NPM package manager so
-that I can include any new modern library such as React, and it incoorporates
-linting and unit testing for ease of development.
+It took some time and iterations but after a while the environment that I set up felt just right: it is easy to develop with ES2015 and even ES2017 / ES7 (in fact, any version that Babel supports), it includes the NPM package manager so
+that I can include any new modern library such as React, and it incorporates linting and unit testing for ease of development.
 
-In this post I will explain the steps that I took and guide through some of the
-more important configuration files, and show how to use the framework for a
-small widget. If you also want to start development of Mendix widgets based on
-this new framework, all code used is freely published and a boilerplate can be
-found at:
+In this post, I will explain the steps that I took and guide through some of the more important configuration files, and show how to use the framework for a small widget. If you also want to start development of Mendix widgets based on this new framework, all code used is freely published, and a boilerplate can be found at:
 
 ### todo url
 
 ## Core technologies
 
-Current webdevelopment has become quite mature and as a developer you have to
-use a lot of different tools in your building process. To name a few: Webpack,
-Babel, NPM, React, ESLint, Jest, etc. This might seem daunting at first, don't
-worry! The basic tools that are necessary for widget development will be
-explained in this section.
+Current web development has become quite mature, and as a developer, you have to use a lot of different tools in your building process. To name a few: Webpack, Babel, NPM, React, ESLint, Jest, etc. This might seem daunting at first, don't worry! The basic tools that are necessary for widget development will be explained in this section.
 
-If you are using the boilerplate, then you can install all those tools by
-installing first NPM, and then issueing `npm install` in the folder in which
-the boilerplate is stored.
+If you are using the boilerplate, then you can install all those tools by first installing NPM, and then issuing `npm install` in the folder in which the boilerplate is stored.
 
 ### todo logos
 
