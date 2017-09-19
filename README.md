@@ -234,6 +234,7 @@ be triggered by running `npm run build` in the root folder of the project.
 
 The current setup is made such that the name of the Mendix widget is defined in
 `package.json`, and the widget is further developed within the `src` directory.
+This boilerplate is installed and ready for use after issuing `npm install`.
 When `npm run build` is triggered all files from the `src` directory are taken
 and copied / transpiled in the `build` directory, which will then have the
 source of the Mendix widget in such a way that it can be safely used within any
@@ -258,7 +259,7 @@ edit `src/widget/HelloWorld.jsx` to import the new library:
 
     import React from 'react';
     import ReactDOM from 'react-dom';
-    import {Modal, Modal.Header, Modal.Title, Modal.Body, Modal.Footer} from 'react-bootstrap';
+    import {Modal} from 'react-bootstrap';
     ....
 
 If we run `npm run build` now it will warn us that we have imported a library
@@ -268,9 +269,9 @@ widget will contain the library components necessary for making our pop-up.
 To have the widget show the pop-up, edit the code to render the modal:
 
     ....
-    import {Modal, Modal.Header, Modal.Title, Modal.Body, Modal.Footer} from 'react-bootstrap';
+    import {Modal} from 'react-bootstrap';
 
-    const popup = <Modal>
+    const popup = <Modal show={true}>
             <Modal.Header>
                 <Modal.Title>Hello World</Modal.Title>
             </Modal.Header>
