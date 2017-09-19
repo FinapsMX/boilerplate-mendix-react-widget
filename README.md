@@ -190,11 +190,39 @@ defined somewhere external and will be loaded by Mendix. Same goes for the
         }
     }
 
+For completeness sake, a minimal `webpack.config.js` should look like:
+
+    module.exports = {
+        target: 'web',
+        entry: {
+            app: path.join(__dirname, 'src/widget', 'HelloWorld.jsx')
+        },
+        output: {
+            libraryTarget: 'amd',
+            path: path.resolve(__dirname, 'build/widget'),
+            publicPath: '',
+            filename: 'HelloWorld.js'
+        },
+        module: {
+            loaders: [
+                {
+                    test: /\.jsx?$/,
+                    exclude: /node_modules/,
+                    loader: ['babel-loader']
+                }
+            ]
+        },
+        externals: {
+            dojoBaseDeclare: "dojo/_base/declare",
+            widgetBase: "mxui/widget/_WidgetBase"
+        }
+    };
+
 ### Babel
 
-The configuration for Babel for developing Mendix widgets is much easier and
-does not differ much from a regular configuration. In fact it is fairly small
-and self explainatory:
+Babel is configured through `.babelrc`, which is rather self explainatory. The
+configuration for developing Mendix widgets is much easier and does not differ
+much from a regular configuration:
 
     {
       "presets": [
