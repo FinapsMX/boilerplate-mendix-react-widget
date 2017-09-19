@@ -1,48 +1,48 @@
 # Develop Mendix Widgets with Webpack and React
 
-Somewhere two years ago I got involved in webdevelopment with Javascript and
+Somewhere two years ago I got involved in web development with Javascript and
 the whole surrounding ecosystem. And it was exciting! With the introduction of
 ES2015, the NPM repository, and React it felt as if the web was developing at
-such a rapid speed that all blogposts that I could find were instantenuous
+such a rapid speed that all blog posts that I could find were instantaneous
 outdated. Each day there was a new feature or paradigm introduced that was the
-new cool thing to use, and it felt thrilling to be able to incoorporate that in
+new cool thing to use, and it felt thrilling to be able to incorporate that in
 new projects.
 
 This year I got into Mendix, and as a Javascript developer, my first project
 was a widget development. Actually more of a module. At Finaps we tried to make
-something similair to the Plotly designer which we could include in some of the
-dashboards that we develop. This widget was not easy to develop within the
-Dojo framework; each iteration during the construction felt kinda awkward. I
-rather wished to develop into something that felt more native to Javascript.
-So, after a few days of struggling I decided to spend more time on developing a
+something similar to the Plotly designer which we could include in some of the
+dashboards that we develop. This widget was not easy to develop within the Dojo
+framework; each iteration during the construction felt kinda awkward. I rather
+wished to develop into something that felt more native to Javascript.  So,
+after a few days of struggling, I decided to spend more time on developing a
 framework which I could leverage to develop native Mendix widgets, with the
 tools that I already knew.
 
-It took some time and iterations, but after a while the environment that I set
+It took some time and iterations but after a while the environment that I set
 up felt just right: it is easy to develop with ES2015 and even ES2017 / ES7 (in
 fact, any version that Babel supports), it includes the NPM package manager so
-that I can include any new modern library such as React, and it incoorporates
+that I can include any new modern library such as React, and it incorporates
 linting and unit testing for ease of development.
 
-In this post I will explain the steps that I took and guide you through some of
+In this post, I will explain the steps that I took and guide through some of
 the more important configuration files, and show how to use the framework for a
 small widget. If you also want to start development of Mendix widgets based on
-this new framework, all code used is freely published and a boilerplate can be
+this new framework, all code used is freely published, and a boilerplate can be
 found at:
 
 ### todo url
 
 ## Core technologies
 
-Current webdevelopment has become quite mature and as a developer you have to
-use a lot of different tools in your building process. To name a few: Webpack,
-Babel, NPM, React, ESLint, Jest, etc. This might seem daunting at first, don't
-worry! The basic tools that are necessary for widget development will be
-explained in this section.
+Current web development has become quite mature, and as a developer, you have
+to use a lot of different tools in your building process. To name a few:
+Webpack, Babel, NPM, React, ESLint, Jest, etc. This might seem daunting at
+first, don't worry! The basic tools that are necessary for widget development
+will be explained in this section.
 
-If you are using the boilerplate, then you can install all those tools by
-installing first NPM, and then issueing `npm install` in the folder in which
-the boilerplate is stored.
+If you are using the boilerplate, then you can install all those tools by first
+installing NPM, and then issuing `npm install` in the folder in which the
+boilerplate is stored.
 
 ### todo logos
 
@@ -55,7 +55,7 @@ which is called the registry. The registry includes all popular packages, such
 as Webpack, Babel, and React. This tool will be used to download all other
 tools necessary for widget development.
 
-Because it is at the root of the project, and is used to download the other
+Because it is at the root of the project and is used to download the other
 packages with, it is the only package which needs manual installation. You can
 find the installation files [here](http://www.npmjs.com).
 
@@ -64,7 +64,7 @@ find the installation files [here](http://www.npmjs.com).
 Webpack is a module bundler. That is, Webpack takes one file (called an asset),
 typically a Javascript file, and follows all dependencies of that file. It
 looks at all includes and imports in that file and builds a dependency graph.
-After investigation it bundles all those files into one file which can be
+After investigation, it bundles all those files into one file which can be
 served to the client.
 
 ### todo graph
@@ -86,50 +86,48 @@ ES2017 / ES7 into plain old Javascript that is understandable by any browser in
 use. If Babel is included in the build process, then you can be safe that
 although your project uses cool new features such as the [spread
 syntax](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_operator),
-it will still run in ancient browsers such as Internet Explorer. This is really
-important if you want to use those astonishing new features and cannot force
+it will still run in ancient browsers such as Internet Explorer. This is important if you want to use those astonishing new features and cannot force
 your clients to use the latest version of Chrome or Firefox.
 
-A whole other blogpost can be written on the subject of those new Javascript
+A whole other blog post can be written on the subject of those new Javascript
 features. And in fact, there are already quite a lot. If unsure what ES6/7 is,
-I suggest a quick Google. It is really exciting to see so much development
+I suggest a quick Google. It is fascinating to see so much development
 within such a short period in one language.
 
-Another great thing about Babel is, is that it allows to transfer JSX syntax to
+Another great thing about Babel is, is that it allows transferring JSX syntax to
 React. Which is, in my opinion, the only graceful manner to write React apps.
 
 Babel will not be used as a command line utility, and therefore it does not
-make sense to install it globally on your development machine. Of course it can
+make sense to install it globally on your development machine. Of course, it can
 be done similar to how Webpack was installed, but it makes more sense to
 install it linked to a project. To start a new project: Make an empty directory
 and change your working directory in the terminal to the new folder, then run
-`npm init`. After that you can install Webpack and Babel to the project by:
+`npm init`. After that, you can install Webpack and Babel to the project by:
 `npm install -s webpack babel-core babel-loader babel-preset-env`.
 
 ### React
 
 React is a Javascript library developed by Facebook for building user
-interfaces by using a component based design. It is at the moment the most
+interfaces by using a component-based design. It is at the moment the most
 popular Javascript library in use, and it empowers a lot of the web. Any
-current project which includes some design is almost surely component based,
+current project which includes some design is almost surely component-based,
 and although the actual implementation is not always React, React set the tune
-on how those interfaces are developed. If you do not know this tech, I really
-urge you to find a React tutorial as soon as possible.
+on how those interfaces are developed. If you do not know this tech, I urge you to find a React tutorial as soon as possible.
 
 To install the library, move the terminal to your project folder and run
 `npm install -s react react-dom prop-types babel-plugin-transform-react-jsx`.
 
 ## Setting everything up
 
-The difficult part in getting al these tools together is in the configuration.
+The difficult part in getting all these tools together is in the configuration.
 There are numerous tutorials on the internet that help you set up a plain
-boilerplate with Webpack and Babel, but if you want something non vanilla such
+boilerplate with Webpack and Babel, but if you want something nonvanilla such
 as a Mendix widget instead of a plain Javascript application, then it suddenly
 becomes much harder.
 
 If you are using the boilerplate, then all configurations are already set up
 and you can use this section as a guide through the most important
-configuration files which differ from a default set up.
+configuration files which differ from a default setup.
 
 ### Webpack
 
@@ -142,10 +140,10 @@ thorough than I can through this post.
 
 We need to tell Webpack that we want our project to be built as a Mendix
 widget, which is actually an AMD module. An AMD module is a Javascript module
-written in such a way that it can be easily integrated in other projects. It
-was one of the first truely modular packaging of Javascript libraries developed
-by the Dojo framework. Nowadays the prevailing standard is the NPM registry
-which is based on CommonJS, but for our purpose we want an AMD package.
+written in such a way that it can easily be integrated into other projects. It was
+one of the first truly modular packagings of Javascript libraries developed by
+the Dojo framework. Nowadays the prevailing standard is the NPM registry which
+is based on CommonJS, but for our purpose, we want an AMD package.
 
 We can tell Webpack to build an AMD module by setting the output target:
 
@@ -255,7 +253,7 @@ generated by `package.xml.js` found in the boilerplate.
 Next everything in the `build` directory has to be zipped and renamed to
 `{widget}.mpk`, which can be loaded directly into Mendix.
 
-All these steps are included as a NPM script in the boilerplate. The script can
+All these steps are included as an NPM script in the boilerplate. The script can
 be triggered by running `npm run build` in the root folder of the project.
 
 ## Hello World
@@ -275,8 +273,8 @@ As an example, this boilerplate includes a copy of a simple `Hello World`
 widget, which loads on activation the React library and uses JSX syntax to
 print Hello World on screen. Obvious, that is not very exciting.
 
-To make it a bit more exciting, lets extend this widget to print `Hello World`
-in a modal (pop-up). For that we are going to use the
+To make it a bit more exciting, let's extend this widget to print `Hello World`
+in a modal (pop-up). For that, we are going to use the
 [React-Bootstrap](https://react-bootstrap.github.io/) library.
 
 To install the bootstrap library execute `npm install -s react-bootstrap`. Now
@@ -323,14 +321,15 @@ snippet which has such a modal with close button can be found
 
 ## Future possibilities
 
+
 This boilerplate is as native to the NPM ecosystem as possible, in such a way
 that it can use the cool new features that are being developed by other
 Javascript developers. It is imagined that this framework is flexible enough to
-adapt to other libraries and developments which will happen in the near future.
-Which is of vital importance in web development due to the rapid changing
+adapt to other libraries and developments which will happen soon.
+Which is of vital importance in web development due to the rapidly changing
 nature of the web. What was a few years ago the golden standard (say for
-instance AMD) is already outdated. As a developer it is important to stay on
-top of all those changes and adapt them in your own development.
+instance AMD) is already outdated. As a developer, it is important to stay on
+top of all those changes and adapt them in your development.
 
 For instance, now that Javascript applications are becoming quite large,
 development has to include some kind of unit testing. Without testing, the
