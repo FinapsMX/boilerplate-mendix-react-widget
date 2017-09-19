@@ -24,8 +24,8 @@ fact, any version that Babel supports), it includes the NPM package manager so
 that I can include any new modern library such as React, and it incoorporates
 linting and unit testing for ease of development.
 
-In this post I will explain the steps that I took and guide through some of the
-more important configuration files, and show how to use the framework for a
+In this post I will explain the steps that I took and guide you through some of
+the more important configuration files, and show how to use the framework for a
 small widget. If you also want to start development of Mendix widgets based on
 this new framework, all code used is freely published and a boilerplate can be
 found at:
@@ -51,7 +51,7 @@ the boilerplate is stored.
 NPM, which stands for Node Package Manager, is at the root of most Javascript
 development. It is the default package manager for a lot of projects and
 consists of a command line client and an online database of public packages,
-which is called the registry. The registry includes all populare packages, such
+which is called the registry. The registry includes all popular packages, such
 as Webpack, Babel, and React. This tool will be used to download all other
 tools necessary for widget development.
 
@@ -70,7 +70,7 @@ served to the client.
 ### todo graph
 
 There are two big advantages to this approach: A client has to download only
-one file it encounters the widget (which saves a lot of time!) and each file
+one file if it encounters the widget (which saves a lot of time!) and each file
 that is used can be inspected by a plugin such as Babel, which will be
 described in the next section.
 
@@ -99,8 +99,8 @@ Another great thing about Babel is, is that it allows to transfer JSX syntax to
 React. Which is, in my opinion, the only graceful manner to write React apps.
 
 Babel will not be used as a command line utility, and therefore it does not
-make sense to install it global on your development machine. Of course it can
-be done similare to how Webpack was installed, but it makes more sense to
+make sense to install it globally on your development machine. Of course it can
+be done similar to how Webpack was installed, but it makes more sense to
 install it linked to a project. To start a new project: Make an empty directory
 and change your working directory in the terminal to the new folder, then run
 `npm init`. After that you can install Webpack and Babel to the project by:
@@ -142,10 +142,10 @@ thorough than I can through this post.
 
 We need to tell Webpack that we want our project to be built as a Mendix
 widget, which is actually an AMD module. An AMD module is a Javascript module
-written in such a way that it can easy be integrated in other projects. It was
-one of the first truely modular packaging of Javascript libraries developed by
-the Dojo framework. Nowadays the prevailing standard is the NPM registry which
-is based on CommonJS, but for our purpose we want an AMD package.
+written in such a way that it can be easily integrated in other projects. It
+was one of the first truely modular packaging of Javascript libraries developed
+by the Dojo framework. Nowadays the prevailing standard is the NPM registry
+which is based on CommonJS, but for our purpose we want an AMD package.
 
 We can tell Webpack to build an AMD module by setting the output target:
 
@@ -286,7 +286,7 @@ edit `src/widget/HelloWorld.jsx` to import the new library:
 
     import React from 'react';
     import ReactDOM from 'react-dom';
-    import {Modal, Modal.Header, Modal.Title, Modal.Body, Modal.Footer} from 'react-bootstrap';
+    import {Modal} from 'react-bootstrap';
     ....
 
 If we run `npm run build` now it will warn us that we have imported a library
@@ -296,7 +296,7 @@ widget will contain the library components necessary for making our pop-up.
 To have the widget show the pop-up, edit the code to render the modal:
 
     ....
-    import {Modal, Modal.Header, Modal.Title, Modal.Body, Modal.Footer} from 'react-bootstrap';
+    import {Modal} from 'react-bootstrap';
 
     const popup = <Modal>
             <Modal.Header>
@@ -306,7 +306,7 @@ To have the widget show the pop-up, edit the code to render the modal:
                 <h4>I just want to say Hello</h4>
             </Modal.Body>
             <Modal.Footer></Modal.Footer>
-        </Modal>
+        </Modal>;
 
     ....
 
@@ -332,7 +332,7 @@ instance AMD) is already outdated. As a developer it is important to stay on
 top of all those changes and adapt them in your own development.
 
 For instance, now that Javascript applications are becoming quite large,
-development has to include some kind of unit testing. Without testing the
+development has to include some kind of unit testing. Without testing, the
 project will become unmanagable, which no one really wants. This is especially
 important now that we see a lot of `single-page` websites which are in fact a
 large React application. Unit tests can help to make sure that legacy code does
