@@ -70,7 +70,7 @@ served to the client.
 ### todo graph
 
 There are two big advantages to this approach: A client has to download only
-one file it encounters the widget (which saves a lot of time!) and each file
+one file if it encounters the widget (which saves a lot of time!) and each file
 that is used can be inspected by a plugin such as Babel, which will be
 described in the next section.
 
@@ -188,11 +188,39 @@ defined somewhere external and will be loaded by Mendix. Same goes for the
         }
     }
 
+For completeness sake, a minimal `webpack.config.js` should look like:
+
+    module.exports = {
+        target: 'web',
+        entry: {
+            app: path.join(__dirname, 'src/widget', 'HelloWorld.jsx')
+        },
+        output: {
+            libraryTarget: 'amd',
+            path: path.resolve(__dirname, 'build/widget'),
+            publicPath: '',
+            filename: 'HelloWorld.js'
+        },
+        module: {
+            loaders: [
+                {
+                    test: /\.jsx?$/,
+                    exclude: /node_modules/,
+                    loader: ['babel-loader']
+                }
+            ]
+        },
+        externals: {
+            dojoBaseDeclare: "dojo/_base/declare",
+            widgetBase: "mxui/widget/_WidgetBase"
+        }
+    };
+
 ### Babel
 
-The configuration for Babel for developing Mendix widgets is much easier and
-does not differ much from a regular configuration. In fact it is fairly small
-and self explainatory:
+Babel is configured through `.babelrc`, which is rather self explainatory. The
+configuration for developing Mendix widgets is much easier and does not differ
+much from a regular configuration:
 
     {
       "presets": [
@@ -277,7 +305,7 @@ To have the widget show the pop-up, edit the code to render the modal:
                 <h4>I just want to say Hello</h4>
             </Modal.Body>
             <Modal.Footer></Modal.Footer>
-        </Modal>
+        </Modal>;
 
     ....
 
@@ -304,7 +332,7 @@ instance AMD) is already outdated. As a developer, it is important to stay on
 top of all those changes and adapt them in your development.
 
 For instance, now that Javascript applications are becoming quite large,
-development has to include some kind of unit testing. Without testing the
+development has to include some kind of unit testing. Without testing, the
 project will become unmanagable, which no one really wants. This is especially
 important now that we see a lot of `single-page` websites which are in fact a
 large React application. Unit tests can help to make sure that legacy code does
