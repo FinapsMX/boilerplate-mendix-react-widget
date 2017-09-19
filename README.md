@@ -8,22 +8,41 @@ outdated. Each day there was a new feature or paradigm introduced that was the
 new cool thing to use, and it felt thrilling to be able to incorporate that in
 new projects.
 
-This year I got into Mendix, and as a Javascript developer, my first project was a widget development. Actually more of a module. At Finaps we tried to make something similar to the Plotly designer which we could include in some of the
-dashboards that we develop. This widget was not easy to develop within the Dojo framework; each iteration during the construction felt kinda awkward. I rather wished to develop into something that felt more native to Javascript.
-So, after a few days of struggling, I decided to spend more time on developing a framework which I could leverage to develop native Mendix widgets, with the tools that I already knew.
+This year I got into Mendix, and as a Javascript developer, my first project
+was a widget development. Actually more of a module. At Finaps we tried to make
+something similar to the Plotly designer which we could include in some of the
+dashboards that we develop. This widget was not easy to develop within the Dojo
+framework; each iteration during the construction felt kinda awkward. I rather
+wished to develop into something that felt more native to Javascript.  So,
+after a few days of struggling, I decided to spend more time on developing a
+framework which I could leverage to develop native Mendix widgets, with the
+tools that I already knew.
 
-It took some time and iterations but after a while the environment that I set up felt just right: it is easy to develop with ES2015 and even ES2017 / ES7 (in fact, any version that Babel supports), it includes the NPM package manager so
-that I can include any new modern library such as React, and it incorporates linting and unit testing for ease of development.
+It took some time and iterations but after a while the environment that I set
+up felt just right: it is easy to develop with ES2015 and even ES2017 / ES7 (in
+fact, any version that Babel supports), it includes the NPM package manager so
+that I can include any new modern library such as React, and it incorporates
+linting and unit testing for ease of development.
 
-In this post, I will explain the steps that I took and guide through some of the more important configuration files, and show how to use the framework for a small widget. If you also want to start development of Mendix widgets based on this new framework, all code used is freely published, and a boilerplate can be found at:
+In this post, I will explain the steps that I took and guide through some of
+the more important configuration files, and show how to use the framework for a
+small widget. If you also want to start development of Mendix widgets based on
+this new framework, all code used is freely published, and a boilerplate can be
+found at:
 
 ### todo url
 
 ## Core technologies
 
-Current web development has become quite mature, and as a developer, you have to use a lot of different tools in your building process. To name a few: Webpack, Babel, NPM, React, ESLint, Jest, etc. This might seem daunting at first, don't worry! The basic tools that are necessary for widget development will be explained in this section.
+Current web development has become quite mature, and as a developer, you have
+to use a lot of different tools in your building process. To name a few:
+Webpack, Babel, NPM, React, ESLint, Jest, etc. This might seem daunting at
+first, don't worry! The basic tools that are necessary for widget development
+will be explained in this section.
 
-If you are using the boilerplate, then you can install all those tools by first installing NPM, and then issuing `npm install` in the folder in which the boilerplate is stored.
+If you are using the boilerplate, then you can install all those tools by first
+installing NPM, and then issuing `npm install` in the folder in which the
+boilerplate is stored.
 
 ### todo logos
 
@@ -213,6 +232,7 @@ be triggered by running `npm run build` in the root folder of the project.
 
 The current setup is made such that the name of the Mendix widget is defined in
 `package.json`, and the widget is further developed within the `src` directory.
+This boilerplate is installed and ready for use after issuing `npm install`.
 When `npm run build` is triggered all files from the `src` directory are taken
 and copied / transpiled in the `build` directory, which will then have the
 source of the Mendix widget in such a way that it can be safely used within any
@@ -237,7 +257,7 @@ edit `src/widget/HelloWorld.jsx` to import the new library:
 
     import React from 'react';
     import ReactDOM from 'react-dom';
-    import {Modal, Modal.Header, Modal.Title, Modal.Body, Modal.Footer} from 'react-bootstrap';
+    import {Modal} from 'react-bootstrap';
     ....
 
 If we run `npm run build` now it will warn us that we have imported a library
@@ -247,9 +267,9 @@ widget will contain the library components necessary for making our pop-up.
 To have the widget show the pop-up, edit the code to render the modal:
 
     ....
-    import {Modal, Modal.Header, Modal.Title, Modal.Body, Modal.Footer} from 'react-bootstrap';
+    import {Modal} from 'react-bootstrap';
 
-    const popup = <Modal>
+    const popup = <Modal show={true}>
             <Modal.Header>
                 <Modal.Title>Hello World</Modal.Title>
             </Modal.Header>
