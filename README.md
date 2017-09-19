@@ -28,9 +28,7 @@ In this post, I will explain the steps that I took and guide through some of
 the more important configuration files, and show how to use the framework for a
 small widget. If you also want to start development of Mendix widgets based on
 this new framework, all code used is freely published, and a boilerplate can be
-found at:
-
-### todo url
+found on this Github.
 
 ## Core technologies
 
@@ -43,8 +41,6 @@ will be explained in this section.
 If you are using the boilerplate, then you can install all those tools by first
 installing NPM, and then issuing `npm install` in the folder in which the
 boilerplate is stored.
-
-### todo logos
 
 ### NPM
 
@@ -66,8 +62,6 @@ typically a Javascript file, and follows all dependencies of that file. It
 looks at all includes and imports in that file and builds a dependency graph.
 After investigation, it bundles all those files into one file which can be
 served to the client.
-
-### todo graph
 
 There are two big advantages to this approach: A client has to download only
 one file if it encounters the widget (which saves a lot of time!) and each file
