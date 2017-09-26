@@ -1,0 +1,8 @@
+exports['#enable() 1'] = "<h1 data-reactroot=\"\">Hello world!</h1>"
+
+exports['#disable() 1'] = "<h1 data-reactroot=\"\">Hello world!</h1>"
+
+exports['#resize() 1'] = "<h1 data-reactroot=\"\">Hello world!</h1>"
+
+exports['#uninitialize() 1'] = "<h1 data-reactroot=\"\">Hello world!</h1>"
+
