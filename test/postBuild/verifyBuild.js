@@ -5,7 +5,7 @@
 
 /*exported dojoConfig*/
 
-const widgetName = require('../package.json').name;
+const widgetName = require('../../package.json').name;
 
 const jsdom = require("jsdom");
 const { JSDOM } = jsdom;
