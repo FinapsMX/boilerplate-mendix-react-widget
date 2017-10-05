@@ -10,7 +10,7 @@
     "babel-plugin-transform-react-jsx": "^6.24.1",
     "babel-preset-env": "^1.6.0",
     "chai": "^3.5.0",
-    "dojo": "^1.12.2",
+    "dojo": "https://github.com/EJBroeders/dojo/tarball/master",
     "eslint": "^4.6.1",
     "eslint-loader": "^1.9.0",
     "eslint-plugin-react": "^7.3.0",
@@ -31,11 +31,9 @@
   },
   "scripts": {
     "clean": "rm -rf build/* && rm -f widget.mpk",
-
     "prebuild": "npm run clean",
     "build": "webpack && node package.xml.js && cd build && zip -r widget.mpk *",
     "postbuild": "npm run verify && cp build/widget.mpk mendix/widgets/",
-
     "verify": "mocha test/postBuild"
   },
   "author": "",
