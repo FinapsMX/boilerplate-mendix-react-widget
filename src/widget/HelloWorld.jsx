@@ -8,10 +8,10 @@ declare("HelloWorld.widget.HelloWorld", [widgetBase], {
 
     constructor: function (params, srcNodeRef) {
         this.domNode = srcNodeRef;
+        ReactDOM.render(<h1>Hello world!</h1>, this.domNode);
     },
 
     update: function (obj, cb) {
-        ReactDOM.render(<h1>Hello world!</h1>, this.domNode);
         cb();
     },
 

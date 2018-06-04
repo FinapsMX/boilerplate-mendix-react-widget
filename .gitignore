@@ -7,7 +7,8 @@
 *.bak
 *.launch
 *.tmp
-*.lock
+
+package-lock.json
 
 # Created by https://www.gitignore.io/api/sbt,scala,playframework,intellij+all
 

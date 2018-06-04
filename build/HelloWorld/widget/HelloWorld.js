@@ -9757,14 +9757,14 @@ __WEBPACK_IMPORTED_MODULE_0_dojoBaseDeclare___default()("HelloWorld.widget.Hello
 
     constructor: function constructor(params, srcNodeRef) {
         this.domNode = srcNodeRef;
-    },
-
-    update: function update(obj, cb) {
         __WEBPACK_IMPORTED_MODULE_3_react_dom___default.a.render(__WEBPACK_IMPORTED_MODULE_2_react___default.a.createElement(
             'h1',
             null,
             'Hello world!'
         ), this.domNode);
+    },
+
+    update: function update(obj, cb) {
         cb();
     }
 
